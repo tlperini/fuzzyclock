@@ -1,0 +1,51 @@
+setup(
+  configure wifi
+  get NTP
+  set RTC (https://github.com/RalphBacon/No-Real-Time-Clock-RTC-required---use-an-NTP/blob/master/Time/examples/TimeNTP_ESP8266WiFi/TimeNTP_ESP8266WiFi.ino)
+)
+
+loop(
+  get lightsensor
+  if buttonPressed (
+    clear leds
+    get tempsensor
+    get humsensor
+    variable = temp
+    displayleds
+    sleep 5
+    clear leds
+    variable = hum
+    displayleds
+    sleep 5
+    clear leds
+    break loop
+  )
+  get local time
+  if local timestamp >= local timestamp + 60 (
+      display time
+  )
+)
+
+displaytime(
+  get hour decimal
+  get hour unity
+  get minute decimal
+  get minute unity
+  get to/past
+  get minute/minutes/oclock
+  variable = hour decimal, hour unity, minute decimal, minute unity, it is, to/past, minute/minutes/oclock
+  displayleds
+)
+
+displayleds(
+  display variable
+)
+
+clearleds(
+  clear variable
+)
+
+
+ideas
+-send mqtt with temp/hum data
+-use internal RTC (https://github.com/espressif/arduino-esp32/issues/3641)
