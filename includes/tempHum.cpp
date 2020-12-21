@@ -17,10 +17,8 @@ void tempHum::loop()
     while(digitalRead(BUTPIN) == HIGH)
     {
         tempStatus = 1;
-        lightSensor::getLightLevel();
         getHumTemp();
         showTempHum();
-        delay(2000);
     }
 }
 
@@ -66,6 +64,7 @@ void tempHum::printTempLEDS(int tempLEDS[19])
     {
         strip.setPixelColor(tempLEDS[i], strip.Color(colorR, colorG, colorB));
     }
+    lightSensor::getLightLevel();
     strip.setBrightness(brightness);
     strip.show();
 }
