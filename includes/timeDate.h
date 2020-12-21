@@ -1,5 +1,6 @@
 #ifndef timeDate_H
 #define timeDate_H
+long NTPUPDATE;
 
 // Set timezone (seconds)
 const long utcOffsetInSeconds = -10800;

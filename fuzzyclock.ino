@@ -1,19 +1,22 @@
 #include "includes/globals.cpp"
 #include "includes/wifi.cpp"
-#include "includes/leds.cpp"
+#include "includes/lightSensor.cpp"
+#include "includes/hourMin.cpp"
 #include "includes/tempHum.cpp"
+#include "includes/timeDate.cpp"
 
 void setup() {
     // ESP.reset();
-    Serial.begin(9600);
+    Serial.begin(76800);
     wifi::setup();
-    leds::setup();
+    hourMin::setup();
     tempHum::setup();
     lightSensor::setup();
+    timeDate::setup();
 }
 
 void loop() {
-    // put your main code here, to run repeatedly:
+    timeDate::loop();
     tempHum::loop();
-    leds::loop();
+    hourMin::loop();
 }
