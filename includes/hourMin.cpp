@@ -14,19 +14,6 @@ void hourMin::setup() {
 }
 
 void hourMin::loop(){
-    // for (int i = 0; i < 10; i++)
-    // {
-    //     lightSensor::getLightLevel();
-    //     strip.setPixelColor(i, strip.Color(colorR, colorG, colorB));
-    //     strip.setBrightness(brightness);
-    //     strip.show();
-    //     delay(1000);
-    // }
-    // for (int i = 0; i < LED_COUNT; i++)
-    // {
-    //     strip.setPixelColor(i, strip.Color(0, 0, 0));
-    // }
-    // strip.show();
     if ((previousMinute != currentMinute) || (tempStatus == 1))
     {
         tempStatus = 0;
@@ -185,13 +172,6 @@ void hourMin::printHours()
         timeHour = 0;
         currentHour++;
     }
-    // Serial.print("timeHour ");
-    // Serial.println(timeHour);
-    // Serial.print("currentHour ");
-    // Serial.println(currentHour);
-    // Serial.print("previousHour ");
-    // Serial.println(previousHour);
-    // Serial.println("----------------------------------------------");
     printHrLEDS(time_hours[timeHour]);
     previousHour = currentHour;
 }
@@ -222,6 +202,5 @@ void hourMin::clearLEDS(int minLEDS[9])
     {
         strip.setPixelColor(minLEDS[i], strip.Color(0, 0, 0));
     }
-    strip.setBrightness(brightness);
     strip.show();
 }
