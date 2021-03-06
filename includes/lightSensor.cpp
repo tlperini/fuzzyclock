@@ -42,13 +42,19 @@ unsigned int lightSensor::BH1750_Read()
 
 void lightSensor::setBrightness()
 {
-    if (lux > 100)
-    {
-        lux = 100;
-    }
-    else if (lux < 10)
+    // 0 - lights off
+    // ~10 - some light
+    // ~100 - lights on (night)
+    // ~4800 - bright light over sensor
+    // ~? - daylight
+    if (lux < 10)
     {
         lux = 10;
     }
-    brightness = floor(lux / 10) * 10;
+    else if (lux > 255)
+    {
+        lux = 255;
+    }
+    // brightness = floor(lux / 10) * 10;
+    brightness = lux;
 }

@@ -7,6 +7,7 @@
 
 void setup() {
     // ESP.reset();
+    // Connect using 74880 baud 81N
     Serial.begin(76800);
     wifi::setup();
     hourMin::setup();
