@@ -14,9 +14,10 @@ void hourMin::setup() {
 }
 
 void hourMin::loop(){
-    if ((previousMinute != currentMinute) || (tempStatus == 1))
+    // if ((previousMinute != currentMinute) || (tempStatus == 1))
+    if (previousMinute != currentMinute)
     {
-        tempStatus = 0;
+        // tempStatus = 0;
         lightSensor::getLightLevel();
         printItIs();
         printMinutes();

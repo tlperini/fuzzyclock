@@ -2,7 +2,7 @@
 #include "includes/wifi.cpp"
 #include "includes/lightSensor.cpp"
 #include "includes/hourMin.cpp"
-#include "includes/tempHum.cpp"
+//#include "includes/tempHum.cpp"
 #include "includes/timeDate.cpp"
 
 void setup() {
@@ -11,13 +11,13 @@ void setup() {
     Serial.begin(76800);
     wifi::setup();
     hourMin::setup();
-    tempHum::setup();
+    //tempHum::setup();
     lightSensor::setup();
     timeDate::setup();
 }
 
 void loop() {
     timeDate::loop();
-    tempHum::loop();
+    //tempHum::loop();
     hourMin::loop();
 }
